@@ -3,8 +3,7 @@
 
 DATE=$(date '+%m%d%y')
 
-if [ -n $1  ]
-then 
+if [ -n "$1" ]; then
     DATE=$1
 fi
 
@@ -20,5 +19,11 @@ do
         break
     fi
 
-    echo "$money_count,$money_details" >> ~/management/document/money_document/money_record_$DATE.rpt
+    # save the money_record_$DATE.rpt file in DOCUMENT_PATH
+    DOCUMENT_PATH=/home/yorick/management/document/money_document/money_record_$DATE.rpt
+    echo "$money_count;$money_details" >> $DOCUMENT_PATH
+
 done
+
+# show file
+vim $DOCUMENT_PATH
