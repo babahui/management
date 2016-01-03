@@ -26,4 +26,3 @@ do
 done
 
 # show file
-vim $DOCUMENT_PATH
